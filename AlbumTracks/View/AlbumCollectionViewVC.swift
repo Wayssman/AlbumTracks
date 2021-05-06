@@ -22,15 +22,15 @@ class AlbumsCollectionViewVC: UIViewController {
         albumsCollectionView.register(UINib(nibName: "AlbumsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumsCollectionViewCell")
         
         albums.bind(to: albumsCollectionView.rx.items(cellIdentifier: "AlbumsCollectionViewCell", cellType: AlbumsCollectionViewCell.self)) { (row, album, cell) in
+            cell.withBackView = true
             cell.titleLabel.text = album.name
         }.disposed(by: disposeBag)
         
         albumsCollectionView.rx.willDisplayCell
             .subscribe(onNext: { (cell, indexPath) in
                 cell.alpha = 0
-                let transform = CATransform3DTranslate(CATransform3DIdentity, 0, -250, 0)
-                cell.layer.transform = transform
-                UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                cell.layer.transform = CATransform3DTranslate(CATransform3DIdentity, 0, -100, 0)
+                UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                     cell.alpha = 1
                     cell.layer.transform = CATransform3DIdentity
                 }, completion: nil)
