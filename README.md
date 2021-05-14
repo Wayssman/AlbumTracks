@@ -1,4 +1,4 @@
 # AlbumTracks
-MVVM + Rx
-RxAlamofire
+MVVM + Rx, RxAlamofire
+
 In progress...
