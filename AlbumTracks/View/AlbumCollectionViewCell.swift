@@ -13,7 +13,15 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
     
     var withBackView: Bool! {
         didSet {
-            self.backView.backgroundColor = imageView.backgroundColor
+            //self.backView.backgroundColor = imageView.backgroundColor
+            self.backView.imageFromServerURL(album.images[0].url, placeHolder: nil)
+        }
+    }
+    
+    public var album: AlbumData! {
+        didSet {
+            self.imageView.imageFromServerURL(album.images[0].url, placeHolder: nil)
+            self.titleLabel?.text = album.name
         }
     }
     
