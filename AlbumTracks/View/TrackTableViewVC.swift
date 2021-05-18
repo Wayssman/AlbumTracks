@@ -12,14 +12,14 @@ import RxCocoa
 class TracksTableViewVC: UIViewController {
     @IBOutlet weak var tracksTableView: UITableView!
     
-    public var tracks = PublishSubject<[Track]>()
+    public var tracks = PublishSubject<[TrackData]>()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tracks.bind(to: tracksTableView.rx.items(cellIdentifier: "TracksTableViewCell")) { (row, track, cell) in
-            cell.textLabel?.text = track.name
+            cell.textLabel?.text = "\(track.trackNumber). " + track.name
         }.disposed(by: disposeBag)
         
         tracksTableView.rx.willDisplayCell

@@ -64,6 +64,11 @@ class HomeVC: UIViewController {
             .observe(on: MainScheduler.instance)
             .bind(to: tracksViewController.tracks)
             .disposed(by: disposeBag)
+        
+        albumsViewController.albumsCollectionView.rx.modelSelected(AlbumData.self)
+            .subscribe(onNext: { [weak self] album in
+                self?.homeViewModel.loadTracks(albumData: album)
+            }).disposed(by: disposeBag)
     }
 }
 

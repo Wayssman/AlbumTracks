@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		608D433A7991227CA6ED5041 /* Pods_AlbumTracks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF842A60A8DF5BF31F0C3AC2 /* Pods_AlbumTracks.framework */; };
 		FF1D777F264430F300EF6A9E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D777E264430F300EF6A9E /* NetworkService.swift */; };
+		FF260DF32648278F00D6B932 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF260DF22648278F00D6B932 /* TokenService.swift */; };
 		FF68D61C2641E3850098A849 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF68D61B2641E3850098A849 /* Album.swift */; };
 		FF68D61F2641E4900098A849 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF68D61E2641E4900098A849 /* Track.swift */; };
 		FF6AE9D726447CBB008591CF /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FF6AE9D526447CBA008591CF /* Nexa Bold.otf */; };
 		FF6AE9D826447CBB008591CF /* Nexa Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FF6AE9D626447CBB008591CF /* Nexa Light.otf */; };
+		FF8134A926457126000F3E8B /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8134A826457126000F3E8B /* Auth.swift */; };
+		FF8134AC26459D27000F3E8B /* ImageViewLoadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8134AB26459D27000F3E8B /* ImageViewLoadExtension.swift */; };
 		FFF368412641E16C00C46F18 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF368402641E16C00C46F18 /* ViewModel.swift */; };
 		FFFC2EC32641983C00154185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC2EC22641983C00154185 /* AppDelegate.swift */; };
 		FFFC2EC52641983C00154185 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC2EC42641983C00154185 /* SceneDelegate.swift */; };
@@ -31,10 +34,13 @@
 		BF842A60A8DF5BF31F0C3AC2 /* Pods_AlbumTracks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumTracks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FFAA77CE28C74CB0990080 /* Pods-AlbumTracks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumTracks.debug.xcconfig"; path = "Target Support Files/Pods-AlbumTracks/Pods-AlbumTracks.debug.xcconfig"; sourceTree = "<group>"; };
 		FF1D777E264430F300EF6A9E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FF260DF22648278F00D6B932 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		FF68D61B2641E3850098A849 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		FF68D61E2641E4900098A849 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		FF6AE9D526447CBA008591CF /* Nexa Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Bold.otf"; sourceTree = "<group>"; };
 		FF6AE9D626447CBB008591CF /* Nexa Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Light.otf"; sourceTree = "<group>"; };
+		FF8134A826457126000F3E8B /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		FF8134AB26459D27000F3E8B /* ImageViewLoadExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewLoadExtension.swift; sourceTree = "<group>"; };
 		FFF368402641E16C00C46F18 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		FFFC2EBF2641983C00154185 /* AlbumTracks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumTracks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFC2EC22641983C00154185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 			children = (
 				FF68D61B2641E3850098A849 /* Album.swift */,
 				FF68D61E2641E4900098A849 /* Track.swift */,
+				FF8134A826457126000F3E8B /* Auth.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +102,26 @@
 				FF6AE9D626447CBB008591CF /* Nexa Light.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FF6AE9DC264494E6008591CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FF1D777E264430F300EF6A9E /* NetworkService.swift */,
+				FF8134AB26459D27000F3E8B /* ImageViewLoadExtension.swift */,
+				FF260DF22648278F00D6B932 /* TokenService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FF6AE9DD26449504008591CF /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				FFFC2EC82641983C00154185 /* Main.storyboard */,
+				FFFC2ECD2641983E00154185 /* LaunchScreen.storyboard */,
+				FFFC2EDD26419B9700154185 /* AlbumsCollectionViewCell.xib */,
+			);
+			path = Nibs;
 			sourceTree = "<group>";
 		};
 		FFF3683E2641E08D00C46F18 /* View */ = {
@@ -137,18 +164,16 @@
 		FFFC2EC12641983C00154185 /* AlbumTracks */ = {
 			isa = PBXGroup;
 			children = (
+				FFFC2EC22641983C00154185 /* AppDelegate.swift */,
+				FFFC2EC42641983C00154185 /* SceneDelegate.swift */,
+				FF6AE9DC264494E6008591CF /* Services */,
 				FF68D61A2641E3680098A849 /* Model */,
 				FFF3683F2641E13100C46F18 /* ViewModel */,
 				FFF3683E2641E08D00C46F18 /* View */,
-				FFFC2EC22641983C00154185 /* AppDelegate.swift */,
-				FFFC2EC42641983C00154185 /* SceneDelegate.swift */,
-				FFFC2EC82641983C00154185 /* Main.storyboard */,
+				FF6AE9DD26449504008591CF /* Nibs */,
 				FF6AE9DA26447CC3008591CF /* Fonts */,
-				FFFC2EDD26419B9700154185 /* AlbumsCollectionViewCell.xib */,
 				FFFC2ECB2641983E00154185 /* Assets.xcassets */,
-				FFFC2ECD2641983E00154185 /* LaunchScreen.storyboard */,
 				FFFC2ED02641983E00154185 /* Info.plist */,
-				FF1D777E264430F300EF6A9E /* NetworkService.swift */,
 			);
 			path = AlbumTracks;
 			sourceTree = "<group>";
@@ -272,10 +297,13 @@
 			files = (
 				FF1D777F264430F300EF6A9E /* NetworkService.swift in Sources */,
 				FFFC2EE526419E2F00154185 /* AlbumCollectionViewCell.swift in Sources */,
+				FF8134AC26459D27000F3E8B /* ImageViewLoadExtension.swift in Sources */,
 				FFFC2EC72641983C00154185 /* HomeVC.swift in Sources */,
+				FF260DF32648278F00D6B932 /* TokenService.swift in Sources */,
 				FFFC2EC32641983C00154185 /* AppDelegate.swift in Sources */,
 				FFFC2EC52641983C00154185 /* SceneDelegate.swift in Sources */,
 				FFFC2EDB264198FC00154185 /* TrackTableViewVC.swift in Sources */,
+				FF8134A926457126000F3E8B /* Auth.swift in Sources */,
 				FF68D61F2641E4900098A849 /* Track.swift in Sources */,
 				FFFC2ED8264198EA00154185 /* AlbumCollectionViewVC.swift in Sources */,
 				FFF368412641E16C00C46F18 /* ViewModel.swift in Sources */,
