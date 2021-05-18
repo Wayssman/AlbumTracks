@@ -16,6 +16,9 @@ class HomeVC: UIViewController {
     private var albumsViewController: AlbumsCollectionViewVC!
     private var tracksViewController: TracksTableViewVC!
     
+    @IBOutlet weak var albumsTitle: UILabel!
+    @IBOutlet weak var tracksTitle: UILabel!
+    
     var homeViewModel = HomeViewModel()
     let disposeBag = DisposeBag()
     
@@ -24,6 +27,20 @@ class HomeVC: UIViewController {
         
         setupBindings()
         homeViewModel.loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let offset = view.bounds.width
+        albumsTitle.transform = CGAffineTransform(translationX: -offset, y: 0)
+        tracksTitle.transform = CGAffineTransform(translationX: -offset, y: 0)
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.albumsTitle.transform = .identity
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 1, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.tracksTitle.transform = .identity
+        }, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

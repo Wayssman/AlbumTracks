@@ -7,6 +7,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nexa Bold.otf">
+            <string>NexaBold</string>
+        </array>
+        <array key="Nexa Light.otf">
+            <string>NexaLight</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
@@ -16,33 +24,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geA-hS-hvC">
-                                <rect key="frame" x="20" y="64" width="374" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZX-ND-bBa">
-                                <rect key="frame" x="20" y="271" width="374" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-cx-pCF">
-                                <rect key="frame" x="0.0" y="101" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="170"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="RAE-uH-I2j"/>
+                                    <constraint firstAttribute="height" constant="170" id="RAE-uH-I2j"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="DCN-3W-NTg" kind="embed" identifier="AlbumsSegue" id="lrP-qJ-PbA"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtT-nl-XRm">
-                                <rect key="frame" x="0.0" y="308" width="414" height="534"/>
+                                <rect key="frame" x="0.0" y="330" width="414" height="512"/>
                                 <connections>
                                     <segue destination="k1t-2H-mP5" kind="embed" identifier="TracksSegue" id="pvk-37-J2e"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZX-ND-bBa">
+                                <rect key="frame" x="20" y="302" width="374" height="20"/>
+                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geA-hS-hvC">
+                                <rect key="frame" x="20" y="64" width="374" height="20"/>
+                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,14 +64,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="geA-hS-hvC" secondAttribute="trailing" constant="20" id="IPx-cq-3zs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MtT-nl-XRm" secondAttribute="bottom" constant="20" id="Yfs-Wt-Hzm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MtT-nl-XRm" secondAttribute="trailing" id="blx-Ol-J62"/>
-                            <constraint firstItem="LZX-ND-bBa" firstAttribute="top" secondItem="d7a-cx-pCF" secondAttribute="bottom" constant="20" id="bnk-gd-Y5a"/>
+                            <constraint firstItem="LZX-ND-bBa" firstAttribute="top" secondItem="d7a-cx-pCF" secondAttribute="bottom" constant="40" id="bnk-gd-Y5a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LZX-ND-bBa" secondAttribute="trailing" constant="20" id="s2g-XL-y7C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d7a-cx-pCF" secondAttribute="trailing" id="wn0-Mx-Cey"/>
                             <constraint firstItem="MtT-nl-XRm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zWk-hs-SpS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="albumsTitle" destination="geA-hS-hvC" id="0Ch-1M-8pA"/>
                         <outlet property="albumsVCView" destination="d7a-cx-pCF" id="kRv-fB-uJU"/>
+                        <outlet property="tracksTitle" destination="LZX-ND-bBa" id="HCl-Nn-D2U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -75,14 +85,14 @@
             <objects>
                 <viewController id="DCN-3W-NTg" customClass="AlbumsCollectionViewVC" customModule="AlbumTracks" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pls-oJ-Tnu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fba-mU-9Ti">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fba-mU-9Ti">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="drx-JE-1vg">
-                                    <size key="itemSize" width="150" height="150"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="22" minimumInteritemSpacing="0.0" id="drx-JE-1vg">
+                                    <size key="itemSize" width="150" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -112,14 +122,14 @@
             <objects>
                 <viewController id="k1t-2H-mP5" customClass="TracksTableViewVC" customModule="AlbumTracks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oMl-9D-4ay">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="534"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="512"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fwF-sB-Y5b">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="534"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fwF-sB-Y5b">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="512"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TracksTableViewCell" textLabel="lOa-z3-S08" style="IBUITableViewCellStyleDefault" id="DSG-mF-BlM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TracksTableViewCell" textLabel="lOa-z3-S08" style="IBUITableViewCellStyleDefault" id="DSG-mF-BlM">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DSG-mF-BlM" id="99a-Mz-3kl">
@@ -129,7 +139,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lOa-z3-S08">
                                                     <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

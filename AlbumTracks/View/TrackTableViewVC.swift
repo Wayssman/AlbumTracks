@@ -25,8 +25,7 @@ class TracksTableViewVC: UIViewController {
         tracksTableView.rx.willDisplayCell
             .subscribe(onNext: { (cell, indexPath) in
                 cell.alpha = 0
-                let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 0, 0)
-                cell.layer.transform = transform
+                cell.layer.transform = CATransform3DTranslate(CATransform3DIdentity, -250, 0, 0)
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                     cell.alpha = 1
                     cell.layer.transform = CATransform3DIdentity
