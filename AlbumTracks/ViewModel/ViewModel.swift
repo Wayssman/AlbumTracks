@@ -24,54 +24,32 @@ class HomeViewModel {
     private let disposeBag = DisposeBag()
     
     public func loadData() {
-        networkService.getToken()
-        networkService.token.take(1).subscribe(onNext: { token in
-            self.networkService.getAlbums(token: token, name: "Meteora", completion: { [weak self] (data) in
+        networkService.token.onNext("wrong")
+        loadAlbums(name: "Meteora")
+    }
+    
+    public func loadAlbums(name: String) {
+        networkService.getAlbums(name)
+            .subscribe(onNext: { [weak self] (response, data) in
                 do {
                     let data = try JSONDecoder().decode(AlbumResponse.self, from: data)
                     self?.albums.onNext(data.albums.data)
-                    print(data.albums.data[0].id)
                     self?.loadTracks(albumData: data.albums.data[0])
                 } catch {
                     print(error)
                 }
-            })
-        }).disposed(by: disposeBag)
-        /*networkService.getAlbums(token: "jXa4as02TG43K83j0zs5jg==", name: "Meteora", completion: { [weak self] (data) in
-            do {
-                let data = try JSONDecoder().decode(AlbumResponse.self, from: data)
-                self?.albums.onNext(data.albums.data)
-                print(data.albums.data[0].id)
-                self?.loadTracks(albumData: data.albums.data[0])
-            } catch {
-                print(error)
-            }
-        })*/
+            }).disposed(by: disposeBag)
     }
     
     public func loadTracks(albumData: AlbumData) {
-        networkService.token.take(1).subscribe(onNext: { token in
-            self.networkService.getTracks(token: token, albumId: albumData.id, completion: { [weak self] (data) in
+        networkService.getTracks(albumData.id)
+            .subscribe(onNext: { [weak self] (response, data) in
                 do {
                     let data = try JSONDecoder().decode(TrackResponse.self, from: data)
-                    self?.tracks.onNext(data.data.sorted(by: { h1, h2 in
-                        return h1.trackNumber < h2.trackNumber
-                    }))
+                    self?.tracks.onNext(data.data)
                 } catch {
                     print(error)
                 }
-            })
-        }).disposed(by: disposeBag)
-        
-        /*networkService.getTracks(token: "jXa4as02TG43K83j0zs5jg==", albumId: albumData.id, completion: { [weak self] (data) in
-            do {
-                let data = try JSONDecoder().decode(TrackResponse.self, from: data)
-                self?.tracks.onNext(data.data.sorted(by: { h1, h2 in
-                    return h1.trackNumber < h2.trackNumber
-                }))
-            } catch {
-                print(error)
-            }
-        })*/
+            }).disposed(by: disposeBag)
     }
 }
