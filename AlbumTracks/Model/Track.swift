@@ -7,21 +7,20 @@
 
 import Foundation
 
-struct Track: Codable {
-    let id, name, trackArtWork, trackAlbum: String
-    let artist: String
+struct TrackResponse: Codable {
+    let data: [TrackData]
     
     enum CodingKeys: String, CodingKey {
-        case id, name
-        case trackArtWork = "track_art_work"
-        case trackAlbum = "track_album"
-        case artist
+        case data = "data"
     }
 }
 
-extension Track {
-    init?(data: Data) {
-        guard let track = try? JSONDecoder().decode(Track.self, from: data) else { return nil }
-        self = track 
+struct TrackData: Codable {
+    let id, name, url: String
+    let duration, trackNumber: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, url, duration
+        case trackNumber = "track_number"
     }
 }
