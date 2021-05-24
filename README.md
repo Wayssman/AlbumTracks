@@ -11,6 +11,6 @@ API - https://developer.kkbox.com/#/
 Добавить поиск треков, разобраться с кэшированием, добавить воспроизведение треков.
 
 <p float="left">
-  <img src="https://github.com/Wayssman/Wayssman/blob/main/AlbumTracks1.png" width="425" />
-  <img src="https://github.com/Wayssman/Wayssman/blob/main/AlbumTracks2.png" width="425" /> 
+  <img src="https://github.com/Wayssman/Wayssman/blob/main/AlbumTracks1.png" width="400" />
+  <img src="https://github.com/Wayssman/Wayssman/blob/main/AlbumTracks2.png" width="400" /> 
 </p>
