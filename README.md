@@ -3,7 +3,7 @@ In progress...
 
 Приложение для поиска альбомов и треков (Rx + MVVM, RxAlamofire)
 
-Мои первые попытки в RealmSwift
+Мои первые попытки в RealmSwift. Основа сделана по статье https://medium.com/flawless-app-stories/practical-mvvm-rxswift-a330db6aa693
 
 API - https://developer.kkbox.com/#/
 
