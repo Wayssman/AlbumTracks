@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,14 +19,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="83l-kL-xfg">
-                    <rect key="frame" x="5" y="9" width="140" height="140"/>
+                    <rect key="frame" x="5" y="0.0" width="140" height="140"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="HCW-62-GPh"/>
                         <constraint firstAttribute="width" constant="140" id="ufV-NV-OkQ"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfd-dU-frC">
-                    <rect key="frame" x="20" y="153" width="110" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Golden Wings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfd-dU-frC">
+                    <rect key="frame" x="20" y="144" width="110" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="yE0-28-mec"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -34,8 +37,8 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="Tfd-dU-frC" firstAttribute="top" secondItem="83l-kL-xfg" secondAttribute="bottom" constant="4" id="12s-yn-96n"/>
-                <constraint firstAttribute="bottom" secondItem="Tfd-dU-frC" secondAttribute="bottom" id="kGL-5p-Bq7"/>
+                <constraint firstItem="Tfd-dU-frC" firstAttribute="top" secondItem="83l-kL-xfg" secondAttribute="bottom" constant="4" id="B6E-oS-xog"/>
+                <constraint firstAttribute="top" secondItem="83l-kL-xfg" secondAttribute="top" id="WHm-Oy-6KB"/>
                 <constraint firstItem="83l-kL-xfg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mYq-FT-84H"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Tfd-dU-frC" secondAttribute="trailing" constant="20" id="q7J-b6-2oy"/>
                 <constraint firstItem="Tfd-dU-frC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="sKd-ir-aJg"/>

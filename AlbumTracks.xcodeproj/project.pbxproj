@@ -83,6 +83,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FF45CA052675F89C009FC517 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				FF68D61A2641E3680098A849 /* Model */,
+				FFF3683F2641E13100C46F18 /* ViewModel */,
+				FFF3683E2641E08D00C46F18 /* View */,
+				FF8134AB26459D27000F3E8B /* ImageViewLoadExtension.swift */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
 		FF68D61A2641E3680098A849 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				FF1D777E264430F300EF6A9E /* NetworkService.swift */,
-				FF8134AB26459D27000F3E8B /* ImageViewLoadExtension.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -164,9 +174,7 @@
 				FFFC2EC22641983C00154185 /* AppDelegate.swift */,
 				FFFC2EC42641983C00154185 /* SceneDelegate.swift */,
 				FF6AE9DC264494E6008591CF /* Services */,
-				FF68D61A2641E3680098A849 /* Model */,
-				FFF3683F2641E13100C46F18 /* ViewModel */,
-				FFF3683E2641E08D00C46F18 /* View */,
+				FF45CA052675F89C009FC517 /* MVVM */,
 				FF6AE9DD26449504008591CF /* Nibs */,
 				FF6AE9DA26447CC3008591CF /* Fonts */,
 				FFFC2ECB2641983E00154185 /* Assets.xcassets */,
