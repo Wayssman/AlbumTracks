@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-cx-pCF">
-                                <rect key="frame" x="0.0" y="92" width="414" height="170"/>
+                                <rect key="frame" x="0.0" y="143" width="414" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="RAE-uH-I2j"/>
                                 </constraints>
@@ -34,45 +34,53 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtT-nl-XRm">
-                                <rect key="frame" x="0.0" y="330" width="414" height="512"/>
+                                <rect key="frame" x="0.0" y="381" width="414" height="461"/>
                                 <connections>
                                     <segue destination="k1t-2H-mP5" kind="embed" identifier="TracksSegue" id="pvk-37-J2e"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZX-ND-bBa">
-                                <rect key="frame" x="20" y="302" width="374" height="20"/>
+                                <rect key="frame" x="20" y="353" width="374" height="20"/>
                                 <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geA-hS-hvC">
-                                <rect key="frame" x="20" y="64" width="374" height="20"/>
+                                <rect key="frame" x="20" y="115" width="374" height="20"/>
                                 <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-ds-hpl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="geA-hS-hvC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5nt-tF-DpP"/>
                             <constraint firstItem="d7a-cx-pCF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AMO-qZ-vlp"/>
-                            <constraint firstItem="geA-hS-hvC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="BUh-xn-fru"/>
                             <constraint firstItem="d7a-cx-pCF" firstAttribute="top" secondItem="geA-hS-hvC" secondAttribute="bottom" constant="8" id="BaP-fn-X6F"/>
                             <constraint firstItem="LZX-ND-bBa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CLs-cx-ch5"/>
                             <constraint firstItem="MtT-nl-XRm" firstAttribute="top" secondItem="LZX-ND-bBa" secondAttribute="bottom" constant="8" id="Hoy-gF-fT0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="geA-hS-hvC" secondAttribute="trailing" constant="20" id="IPx-cq-3zs"/>
+                            <constraint firstItem="uAe-ds-hpl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JX2-lJ-6Im"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MtT-nl-XRm" secondAttribute="bottom" constant="20" id="Yfs-Wt-Hzm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MtT-nl-XRm" secondAttribute="trailing" id="blx-Ol-J62"/>
                             <constraint firstItem="LZX-ND-bBa" firstAttribute="top" secondItem="d7a-cx-pCF" secondAttribute="bottom" constant="40" id="bnk-gd-Y5a"/>
+                            <constraint firstItem="geA-hS-hvC" firstAttribute="top" secondItem="uAe-ds-hpl" secondAttribute="bottom" constant="20" id="fRf-kI-jYH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LZX-ND-bBa" secondAttribute="trailing" constant="20" id="s2g-XL-y7C"/>
+                            <constraint firstItem="uAe-ds-hpl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sun-tk-6ML"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d7a-cx-pCF" secondAttribute="trailing" id="wn0-Mx-Cey"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="uAe-ds-hpl" secondAttribute="top" id="yt4-ph-rdP"/>
                             <constraint firstItem="MtT-nl-XRm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zWk-hs-SpS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="albumsTitle" destination="geA-hS-hvC" id="0Ch-1M-8pA"/>
                         <outlet property="albumsVCView" destination="d7a-cx-pCF" id="kRv-fB-uJU"/>
+                        <outlet property="searchBar" destination="uAe-ds-hpl" id="nHa-vF-Kbk"/>
                         <outlet property="tracksTitle" destination="LZX-ND-bBa" id="HCl-Nn-D2U"/>
                     </connections>
                 </viewController>
@@ -122,15 +130,15 @@
             <objects>
                 <viewController id="k1t-2H-mP5" customClass="TracksTableViewVC" customModule="AlbumTracks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oMl-9D-4ay">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="512"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="461"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fwF-sB-Y5b">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="512"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="461"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TracksTableViewCell" textLabel="lOa-z3-S08" style="IBUITableViewCellStyleDefault" id="DSG-mF-BlM">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DSG-mF-BlM" id="99a-Mz-3kl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>

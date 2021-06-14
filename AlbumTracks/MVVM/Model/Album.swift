@@ -8,19 +8,19 @@
 import Foundation
 
 struct AlbumResponse: Codable {
-    let albums: Albums
+  let albums: Albums
 }
 
 struct Albums: Codable {
-    let data: [AlbumData]
+  let data: [AlbumData]
 }
 
 struct AlbumData: Codable {
-    let id, name: String
-    let images: [AlbumImages]
+  let id, name: String
+  let images: [AlbumImages]
 }
 
 struct AlbumImages: Codable {
-    let height, width: Int
-    let url: String
+  let height, width: Int
+  let url: String
 }
