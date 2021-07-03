@@ -8,7 +8,8 @@
 import Foundation
 
 struct Auth: Codable {
-  let token, expires, type: String
+  let token, type: String
+  let expires: Double
   
   enum CodingKeys: String, CodingKey {
     case token = "access_token"

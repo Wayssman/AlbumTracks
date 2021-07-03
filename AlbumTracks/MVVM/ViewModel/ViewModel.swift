@@ -19,6 +19,7 @@ final class HomeViewModel {
   // MARK: - Public Properties
   public let albums: PublishSubject<[AlbumData]> = PublishSubject()
   public let tracks: PublishSubject<[TrackData]> = PublishSubject()
+  public let loading: PublishSubject<Bool> = PublishSubject()
   
   // MARK: - Private Properties
   private let networkService = NetworkService()
@@ -26,20 +27,27 @@ final class HomeViewModel {
   
   // MARK: - Public Methods
   public func loadData() {
+    loading.onNext(true)
+    
     networkService.token.subscribe {
       print("new token: ", $0)
     }.disposed(by: disposeBag)
     networkService.token.onNext("wrong")
-    loadAlbums(name: "Meteora")
+    
+    loadAlbums(name: "KID")
   }
   
   public func loadAlbums(name: String) {
     networkService.getAlbums(name)
       .subscribe(onNext: { [weak self] (response, data) in
         do {
-          print(data)
           let data = try JSONDecoder().decode(AlbumResponse.self, from: data)
-          self?.albums.onNext(data.albums.data)
+          self?.albums.onNext(data.albums.data.sorted(by: { lhs, rhs in
+            if lhs.name.lowercased().contains(name.lowercased()) {
+              return true
+            }
+            return false
+          }))
           self?.loadTracks(albumData: data.albums.data[0])
         } catch {
           print(error)
@@ -53,6 +61,7 @@ final class HomeViewModel {
         do {
           let data = try JSONDecoder().decode(TrackResponse.self, from: data)
           self?.tracks.onNext(data.data)
+          self?.loading.onNext(false)
         } catch {
           print(error)
         }

@@ -57,11 +57,12 @@ final class NetworkService {
       } // Создаем запрос с использованием токена
       .flatMap { response($0) } // Получаем ответ на запрос и делаем каждый ответ Observable
       .map { response in // Проверяем ответ на ошибку авторизации
-        print(response.0.statusCode)
         guard response.0.statusCode != 403 else { throw NetworkError.forbidden }
         return response
-      }.retry(when: { [unowned self] _ in // Запрашиваем новый токен
-        return self.getToken()
+      }.retry(when: { error in
+        error.flatMap { [unowned self] test in
+          self.getToken()
+        }
       })
   }
   

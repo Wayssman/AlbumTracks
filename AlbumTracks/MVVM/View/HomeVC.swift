@@ -15,6 +15,8 @@ final class HomeVC: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var albumsTitle: UILabel!
   @IBOutlet weak var tracksTitle: UILabel!
+  @IBOutlet weak var tracksTitleLeading: NSLayoutConstraint!
+  @IBOutlet weak var tracksTitleTrailing: NSLayoutConstraint!
   
   // MARK: - Private Properties
   private var albumsViewController: AlbumsCollectionViewVC!
@@ -23,10 +25,18 @@ final class HomeVC: UIViewController {
   private var homeViewModel = HomeViewModel()
   private let disposeBag = DisposeBag()
   
+  private let loadingView: LoadingView = {
+    let view = LoadingView(with: "Загрузка")
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.isHidden = true
+    return view
+  }()
+  
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setupUI()
     setupBindings()
     homeViewModel.loadData()
   }
@@ -55,7 +65,25 @@ final class HomeVC: UIViewController {
   }
   
   // MARK: - Private Methods
+  private func setupUI() {
+    view.addSubview(loadingView)
+    NSLayoutConstraint.activate([
+      loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      loadingView.heightAnchor.constraint(equalToConstant: 100),
+      loadingView.widthAnchor.constraint(equalToConstant: 200),
+    ])
+  }
+  
   private func setupBindings() {
+    homeViewModel
+      .loading
+      .observe(on: MainScheduler.instance)
+      .subscribe(onNext: { [weak self] isError in
+        self?.loadingView.isHidden = !isError
+      })
+      .disposed(by: disposeBag)
+    
     homeViewModel
       .albums
       .observe(on: MainScheduler.instance)
@@ -70,7 +98,9 @@ final class HomeVC: UIViewController {
     
     albumsViewController.albumsCollectionView.rx.modelSelected(AlbumData.self)
       .subscribe(onNext: { [weak self] album in
+        self?.homeViewModel.loading.onNext(true)
         self?.homeViewModel.loadTracks(albumData: album)
+        self?.tracksTitle.text = "\(album.name)"
       }).disposed(by: disposeBag)
     
     searchBar.rx.text
@@ -79,9 +109,41 @@ final class HomeVC: UIViewController {
       .distinctUntilChanged()
       .filter { !$0.isEmpty }
       .subscribe(onNext: { [weak self] text in
+        self?.homeViewModel.loading.onNext(true)
         self?.homeViewModel.loadAlbums(name: text)
+        self?.albumsTitle.text = "Albums - \(text)"
+        self?.albumsViewController.albumsCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
       })
       .disposed(by: disposeBag)
+    
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tracksTitleTapped))
+    self.tracksTitle.addGestureRecognizer(gestureRecognizer)
+    self.tracksTitle.isUserInteractionEnabled = true
+  }
+  
+  @objc private func tracksTitleTapped() {
+    let string = tracksTitle.text ?? ""
+    let font = tracksTitle.font ?? UIFont.boldSystemFont(ofSize: 20)
+    
+    // Вычисляем предполагаемую ширину текста на View
+    let stringBoxWidth = (string as NSString).size(withAttributes: [NSAttributedString.Key.font: font]).width
+    
+    // Сохраняем начальное положение
+    let initialLeading = tracksTitleLeading.constant
+    // Считаем на сколько нам нужно сдвинуть текст
+    let offset = stringBoxWidth - view.bounds.width + tracksTitleTrailing.constant + 2 * tracksTitleLeading.constant
+    guard offset > 0 else { return }
+    
+    // Рассчитываем длительность анимации в зависимости от прокручиваемого текста
+    let duration = Double(offset / 40)
+    
+    view.layoutIfNeeded()
+    UIView.animate(withDuration: duration, delay: 0, options: [.autoreverse], animations: {
+      self.tracksTitleLeading.constant -= offset
+      self.view.layoutIfNeeded()
+    }, completion: { _ in
+      self.tracksTitleLeading.constant = initialLeading
+    })
   }
 }
 
