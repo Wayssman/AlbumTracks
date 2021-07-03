@@ -15,6 +15,8 @@
 		FF6AE9D826447CBB008591CF /* Nexa Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FF6AE9D626447CBB008591CF /* Nexa Light.otf */; };
 		FF8134A926457126000F3E8B /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8134A826457126000F3E8B /* Auth.swift */; };
 		FF8134AC26459D27000F3E8B /* ImageViewLoadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8134AB26459D27000F3E8B /* ImageViewLoadExtension.swift */; };
+		FFD8E8202682700600C495BA /* RetryTokenNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8E81F2682700600C495BA /* RetryTokenNetworkService.swift */; };
+		FFEF6F2B2690AC3A008620D1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEF6F2A2690AC3A008620D1 /* LoadingView.swift */; };
 		FFF368412641E16C00C46F18 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF368402641E16C00C46F18 /* ViewModel.swift */; };
 		FFFC2EC32641983C00154185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC2EC22641983C00154185 /* AppDelegate.swift */; };
 		FFFC2EC52641983C00154185 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC2EC42641983C00154185 /* SceneDelegate.swift */; };
@@ -39,6 +41,8 @@
 		FF6AE9D626447CBB008591CF /* Nexa Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Light.otf"; sourceTree = "<group>"; };
 		FF8134A826457126000F3E8B /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		FF8134AB26459D27000F3E8B /* ImageViewLoadExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewLoadExtension.swift; sourceTree = "<group>"; };
+		FFD8E81F2682700600C495BA /* RetryTokenNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryTokenNetworkService.swift; sourceTree = "<group>"; };
+		FFEF6F2A2690AC3A008620D1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FFF368402641E16C00C46F18 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		FFFC2EBF2641983C00154185 /* AlbumTracks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumTracks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFC2EC22641983C00154185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1D777E264430F300EF6A9E /* NetworkService.swift */,
+				FFD8E81F2682700600C495BA /* RetryTokenNetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				FFFC2ED7264198EA00154185 /* AlbumCollectionViewVC.swift */,
 				FFFC2EE426419E2F00154185 /* AlbumCollectionViewCell.swift */,
 				FFFC2EDA264198FC00154185 /* TrackTableViewVC.swift */,
+				FFEF6F2A2690AC3A008620D1 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,7 +311,9 @@
 				FF8134AC26459D27000F3E8B /* ImageViewLoadExtension.swift in Sources */,
 				FFFC2EC72641983C00154185 /* HomeVC.swift in Sources */,
 				FFFC2EC32641983C00154185 /* AppDelegate.swift in Sources */,
+				FFEF6F2B2690AC3A008620D1 /* LoadingView.swift in Sources */,
 				FFFC2EC52641983C00154185 /* SceneDelegate.swift in Sources */,
+				FFD8E8202682700600C495BA /* RetryTokenNetworkService.swift in Sources */,
 				FFFC2EDB264198FC00154185 /* TrackTableViewVC.swift in Sources */,
 				FF8134A926457126000F3E8B /* Auth.swift in Sources */,
 				FF68D61F2641E4900098A849 /* Track.swift in Sources */,
