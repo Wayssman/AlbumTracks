@@ -11,10 +11,8 @@ import RxAlamofire
 
 public typealias Response = (URLRequest) -> Observable<(HTTPURLResponse, Data)>
 
-func getAlbumsR(album: String) -> Observable<(HTTPURLResponse, Data)> {
-  return getData(response: { request in
-    return RxAlamofire.requestData(request)
-  }, tokenAcquisitionService: TokenAcquisitionService(inititalToken: "wrong", getToken: { token in
+final class NetworkService {
+  private let tokenAcquisitionService = TokenAcquisitionService(inititalToken: "wrong", getToken: { token in
     let url = URL(string: "https://account.kkbox.com/oauth2/token")
     var request = URLRequest(url: url!)
     request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -30,26 +28,45 @@ func getAlbumsR(album: String) -> Observable<(HTTPURLResponse, Data)> {
     return RxAlamofire.requestData(request)
   }, extractToken: { data in
     return try JSONDecoder().decode(Auth.self, from: data).token
-  }), request: { token in
-    let url = URL(string: "https://api.kkbox.com/v1.1/search?q=\(album)&type=album&territory=TW&offset=0&limit=50")
-    var request = URLRequest(url: url!)
-    request.setValue("application/json", forHTTPHeaderField: "accept")
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "authorization")
-    request.httpMethod = "GET"
-    return request
   })
-}
-
-public func getData<T>(response: @escaping Response, tokenAcquisitionService: TokenAcquisitionService<T>, request: @escaping (T) throws -> URLRequest) -> Observable<(HTTPURLResponse, Data)> {
-  return Observable
-    .deferred { tokenAcquisitionService.token.take(1) }
-    .map { try request($0) }
-    .flatMap { response($0) }
-    .map { response in
-      guard response.0.statusCode != 403 else { throw TokenAcquisitionError.unauthorised }
-      return response
-    }
-    .retry(when: { $0.renewToken(with: tokenAcquisitionService) })
+  
+  func getTracks(_ albumId: String) -> Observable<(HTTPURLResponse, Data)> {
+    return getData(response: { request in
+      return RxAlamofire.requestData(request)
+    }, tokenAcquisitionService: tokenAcquisitionService, request: { token in
+      let url = URL(string: "https://api.kkbox.com/v1.1/albums/\(albumId)/tracks?territory=TW&offset=0&limit=100")
+      var request = URLRequest(url: url!)
+      request.setValue("application/json", forHTTPHeaderField: "accept")
+      request.setValue("Bearer \(token)", forHTTPHeaderField: "authorization")
+      request.httpMethod = "GET"
+      return request
+    })
+  }
+  
+  func getAlbums(album: String) -> Observable<(HTTPURLResponse, Data)> {
+    return getData(response: { request in
+      return RxAlamofire.requestData(request)
+    }, tokenAcquisitionService: tokenAcquisitionService, request: { token in
+      let url = URL(string: "https://api.kkbox.com/v1.1/search?q=\(album)&type=album&territory=TW&offset=0&limit=50")
+      var request = URLRequest(url: url!)
+      request.setValue("application/json", forHTTPHeaderField: "accept")
+      request.setValue("Bearer \(token)", forHTTPHeaderField: "authorization")
+      request.httpMethod = "GET"
+      return request
+    })
+  }
+  
+  private func getData<T>(response: @escaping Response, tokenAcquisitionService: TokenAcquisitionService<T>, request: @escaping (T) throws -> URLRequest) -> Observable<(HTTPURLResponse, Data)> {
+    return Observable
+      .deferred { tokenAcquisitionService.token.take(1) }
+      .map { try request($0) }
+      .flatMap { response($0) }
+      .map { response in
+        guard response.0.statusCode != 403 else { throw TokenAcquisitionError.unauthorised }
+        return response
+      }
+      .retry(when: { $0.renewToken(with: tokenAcquisitionService) })
+  }
 }
 
 public enum TokenAcquisitionError: Error, Equatable {

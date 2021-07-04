@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		608D433A7991227CA6ED5041 /* Pods_AlbumTracks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF842A60A8DF5BF31F0C3AC2 /* Pods_AlbumTracks.framework */; };
-		FF1D777F264430F300EF6A9E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D777E264430F300EF6A9E /* NetworkService.swift */; };
 		FF68D61C2641E3850098A849 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF68D61B2641E3850098A849 /* Album.swift */; };
 		FF68D61F2641E4900098A849 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF68D61E2641E4900098A849 /* Track.swift */; };
 		FF6AE9D726447CBB008591CF /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FF6AE9D526447CBA008591CF /* Nexa Bold.otf */; };
@@ -34,7 +33,6 @@
 		5708F63F905F43E71F7E6DD7 /* Pods-AlbumTracks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumTracks.release.xcconfig"; path = "Target Support Files/Pods-AlbumTracks/Pods-AlbumTracks.release.xcconfig"; sourceTree = "<group>"; };
 		BF842A60A8DF5BF31F0C3AC2 /* Pods_AlbumTracks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumTracks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FFAA77CE28C74CB0990080 /* Pods-AlbumTracks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumTracks.debug.xcconfig"; path = "Target Support Files/Pods-AlbumTracks/Pods-AlbumTracks.debug.xcconfig"; sourceTree = "<group>"; };
-		FF1D777E264430F300EF6A9E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FF68D61B2641E3850098A849 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		FF68D61E2641E4900098A849 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		FF6AE9D526447CBA008591CF /* Nexa Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Bold.otf"; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		FF6AE9DC264494E6008591CF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FF1D777E264430F300EF6A9E /* NetworkService.swift */,
 				FFD8E81F2682700600C495BA /* RetryTokenNetworkService.swift */,
 			);
 			path = Services;
@@ -306,7 +303,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF1D777F264430F300EF6A9E /* NetworkService.swift in Sources */,
 				FFFC2EE526419E2F00154185 /* AlbumCollectionViewCell.swift in Sources */,
 				FF8134AC26459D27000F3E8B /* ImageViewLoadExtension.swift in Sources */,
 				FFFC2EC72641983C00154185 /* HomeVC.swift in Sources */,
