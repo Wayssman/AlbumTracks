@@ -77,6 +77,17 @@ final class HomeVC: UIViewController {
   
   private func setupBindings() {
     homeViewModel
+      .errors
+      .observe(on: MainScheduler.instance)
+      .subscribe(onNext: { [weak self] error in
+        let alertController = UIAlertController(title: "Ошибка", message: "Не удалось получить данные", preferredStyle: .alert)
+        let action = UIAlertAction(title: "ОК", style: .cancel)
+        alertController.addAction(action)
+        self?.present(alertController, animated: true)
+      })
+      .disposed(by: disposeBag)
+    
+    homeViewModel
       .loading
       .observe(on: MainScheduler.instance)
       .subscribe(onNext: { [weak self] isError in
